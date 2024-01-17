@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        const Title = (
+        const Title = () => (
             <h3 id = "title" onMouseEnter={() => console.log("mouse enter")}>
                 Hello I'm a title
                 </h3>
@@ -21,7 +21,7 @@
             },
             "Hello I'm a span"
             );*/
-        const Button = (
+        const Button = () => ( // "() =>" 기호를 통해 function 선언을 해준다.
             <button
             style = {{
                 backgroundColor: "tomato",
@@ -37,7 +37,8 @@
             },
             "Click me"
         );*/
-        const container = React.createElement("div", null, [Title, Button])
-        ReactDOM.render(container, root);
+        const Container = () => (<div><Title /><Button /></div>); // 위에서 선언된 함수를 <Title />의 형식으로 불러온다. 함수의 첫 글자는 꼭 대문자여야 할 것.
+        //내가 직접 작성한 요소는 전부 대문자로 시작해야 함
+        ReactDOM.render(<Container />, root);
     </script>
 </html>
